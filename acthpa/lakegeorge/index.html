@@ -1,195 +1,194 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FreeFlight Wx</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.1.0/js/bootstrap-toggle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+      integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rawcdn.githack.com/adamculpepper/toggle-switchy/b23760a9c51138b6e391bc57b3699ad734a72b41/toggle-switchy.css"
+    />
 
-    <!-- Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.1.0/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <link id="bsdp-css" href="../bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <style>
+      .scrollable-h {
+        overflow: auto;
+        background: linear-gradient(90deg, #fff 33%, rgba(255, 255, 255, 0)),
+          linear-gradient(90deg, rgba(255, 255, 255, 0), #fff 66%) 0 100%,
+          radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, 0.4), transparent),
+          radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.4), transparent)0 100%;
+        background-repeat: no-repeat;
+        background-size: 30px 100%, 30px 100%, 10px 100%, 10px 100%;
+        background-position: 0 0, 100%, 0 0, 100%;
+        background-attachment: local, local, scroll, scroll;
+      }
+      .scrollable-h img {
+        mix-blend-mode: multiply;
+      }
+    </style>
+  </head>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body>
+  <body>
+    <header class="navbar navbar-expand-md navbar-light bg-light">
+      <div class="container-xxl">
+        <a class="navbar-brand" href="../"
+          >FreeFlight Wx<span class="visually-hidden"> (Home)</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-
-
-
-<div class="container">
-<!-- Static navbar -->
-
-
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="../">Home</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item dropdown mr-auto">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                ACTHPA
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/acthpa/springhill/">Spring Hill</a></li>
+                <li><a class="dropdown-item" href="/acthpa/lakegeorge/">Lake George</a></li>
+                <li><a class="dropdown-item" href="/acthpa/pighill/">Pig Hill</a></li>
+                <li><a class="dropdown-item" href="/acthpa/lanyon/">Lanyon</a></li>
+              </ul>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Current</a>
+            </li>
+            <!--<li class="nav-item"><a class="nav-link" href="15mins.php">15 Mins</a></li>-->
+            <li class="nav-item">
+              <a class="nav-link" href="1hour.php">1 Hour</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="4hours.php">4 Hours</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="12hours.php">12 Hours</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="day.php">Day</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="table.php?h=24">Table</a>
+            </li>
+          </ul>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li id="li_index"><a href="index.php">Current</a></li>
-                <!--<li id="li_15mins"><a href="15mins.php">15 Mins</a></li>-->
-                <li id="li_1hour"><a href="1hour.php">1 Hour</a></li>
-                <li id="li_4hours"><a href="4hours.php">4 Hours</a></li>
-                <li id="li_12hours"><a href="12hours.php">12 Hours</a></li>
-                <li id="li_day"><a href="day.php">Day</a></li>
-                <li id="li_table"><a href="table.php?h=24">Table</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
-</nav>
 
-<script>
-    function GetCurrentPageName() {
-        //method to get Current page name from url.
-        var PageURL = document.location.href;
-        var PageName = PageURL.substring(PageURL.lastIndexOf('/') + 1);
+      </div>
+    </header>
 
-        return PageName.toLowerCase() ;
-    }
+    <div class="container-xxl">
+      <h1 class="h3 mt-3">Lake George Weather Station</h1>
 
-
-
-    $(document).ready(function(){
-
-
-        var CurrPage = GetCurrentPageName();
-
-        switch(CurrPage){
-            case 'index.php':
-                $('#li_index').addClass('active') ;
-                break;
-            case '15mins.php':
-                $('#li_15mins').addClass('active') ;
-                break;
-            case '1hour.php':
-                $('#li_1hour').addClass('active') ;
-                break;
-            case '4hours.php':
-                $('#li_4hours').addClass('active') ;
-                break;
-            case '12hours.php':
-                $('#li_12hours').addClass('active') ;
-                break;
-            case 'day.php':
-                $('#li_day').addClass('active') ;
-                break;
-            case 'table.php?h=1':
-                $('#table').addClass('active') ;
-                break;
-        }
-
-
-    });
-
-
-</script>
-
-
-<h3>Lake George Weather Station</h3>
-</div>
-
-
-<div class="container">
-    <div class="checkbox">
-        <label>
-            <input id="toggle" type="checkbox" checked data-toggle="toggle" data-size="mini" data-onstyle="info" data-offstyle="warning">
-            Auto refresh (every 3 seconds)
+      <div class="checkbox my-2">
+        <label
+          class="toggle-switchy"
+          for="toggle"
+          data-size="sm"
+        >
+          <input checked="" type="checkbox" id="toggle" />
+          <span class="toggle">
+            <span class="switch"></span>
+          </span>
+          <span class="label">Auto refresh (every 3 seconds)</span>
         </label>
+      </div>
+
+      <div class="scrollable-h my-2">
+        <img
+          src="http://www.freeflightwx.com/acthpa/lakegeorge/windgraph.php?
+            time=600&
+            window=600&
+            width=780&
+            height=500&
+            max=0&
+            min=0&
+            markers=1&
+            error=1&
+            average=0&
+            point=3&
+            timeDisplay=true&
+            rand=1603063321"
+          id="graph"
+        />
+      </div>
     </div>
-</div>
 
-<div class="container">
-    <img SRC='windgraph.php?
-    time=600&
-    window=600&
-    width=780&
-    height=500&
-    max=0&
-    min=0&
-    markers=1&
-    error=1&
-    average=0&
-    point=3&
-    timeDisplay=true&
-    rand=1603063321'
-         id="graph">
-</div>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"
+      integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d"
+      crossorigin="anonymous"
+    ></script>
 
+    <script type="text/javascript">
+      let imageRefreshInterval
+      let count
+      let toggle = document.querySelector('#toggle')
 
-<script type="text/javascript">
+      // Gets current page name from url, with no parameters.
+      let currentPage = (function () {
+        return window.location.pathname.split('/').pop().toLowerCase() || "index.php"
+      })()
+      // Finds the link which href starts with the current PHP page name
+      let activePage = document.querySelector('a[href^="' + currentPage + '"]')
+      activePage.classList.add('active')
 
-    var myVar;
+      function startRefresh() {
+        imageRefreshInterval = setInterval(function () {
+          updateImage()
+        }, 3000)
+        count = 60
+      }
 
-    var count;
+      function stopRefresh() {
+        clearInterval(imageRefreshInterval)
+      }
 
-    function stopRefresh() {
-        clearInterval(myVar);
-    }
-
-    function startRefresh() {
-        myVar = setInterval(function(){ updateImage() }, 3000);
-        count = 60;
-    }
-
-    function updateImage() {
-        var image = document.getElementById("graph");
-        image.src = './windgraph.php?time=600&window=600&width=780&height=500&max=0&min=0&bol=0&markers=1&error=1&average=0&point=3&timeDisplay=true&rand=' + Math.random();
-        count--;
-        if(count <= 0){
-            toggleOff();
-
+      function updateImage() {
+        let image = document.getElementById('graph')
+        image.src =
+          'http://www.freeflightwx.com/acthpa/lakegeorge/windgraph.php?time=600&window=600&width=780&height=500&max=0&min=0&bol=0&markers=1&error=1&average=0&point=3&timeDisplay=true&rand=' +
+          Math.random()
+        count--
+        if (count <= 0) {
+          toggleOff()
         }
-    }
+      }
 
-    function toggleOff() {
-        $('#toggle').prop('checked', false).change()
-    }
+      function toggleOff() {
+        let event = document.createEvent('HTMLEvents')
+        event.initEvent('change', true, false)
+        toggle.dispatchEvent(event)
+        toggle.checked = false
+      }
 
-    window.onload = function() {
-        startRefresh();
+      window.onload = function () {
+        startRefresh()
+        document.getElementById('graph').scrollIntoView({ inline: 'end' })
+      }
 
-    }
-
-    $(function() {
-        $('#toggle').change(function(){
-
-            if($('#toggle').is(':checked')) {
-                updateImage();
-                startRefresh();
-            }
-            else {
-                stopRefresh();
-            }
-
-
-        });
-    })
-
-</script>
-
-
-
-
-</body>
+      toggle.addEventListener('change', (event) => {
+        if (this.checked) {
+          updateImage()
+          startRefresh()
+        } else {
+          stopRefresh()
+        }
+      })
+    </script>
+  </body>
 </html>
