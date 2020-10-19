@@ -141,7 +141,7 @@
 
       // Gets current page name from url, with no parameters.
       let currentPage = (function () {
-        return window.location.pathname.split('/').pop().toLowerCase() || "index.php"
+        return window.location.pathname.split('/').pop().toLowerCase() || "index.html"
       })()
       // Finds the link which href starts with the current PHP page name
       let activePage = document.querySelector('a[href^="' + currentPage + '"]')
